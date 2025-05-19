@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -28.8, "left": 292.84, "attrs": {} },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": 10.6,
+      "left": -174.1,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 224,
+      "left": -258.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -147.1,
+      "left": -218.9,
+      "rotate": 270,
+      "attrs": { "distance": "2" }
+    },
+    {
+      "type": "board-ds18b20",
+      "id": "temp1",
+      "top": -285.58,
+      "left": -135.63,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot2",
+      "top": 116.2,
+      "left": -174.1,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -364.8,
+      "left": -412.8,
+      "attrs": { "text": "Valvula (aceso = aberta)" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -374.4,
+      "left": 268.8,
+      "attrs": {
+        "text": "Vermelho: 5V\nMarrom: 3.3V\nPreto: Ground\n\nLaranja: Digital inputs\nAmarelo: Digital output\nAzul: Digital In/Out (1-Wire, two way bus communication)\n\nVerde/Verde Claro: Analog input"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": -307.2,
+      "left": -422.4,
+      "attrs": {
+        "text": "Temperatura digital a prova d'água\nAceita 3.3V ou 5V\n1-Wire protocol requer 4.7Kohm\nconectado entre Do e Vcc (pullup)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": -134.4,
+      "left": -556.8,
+      "attrs": {
+        "text": "Distância Ultrassônico Digital,\nAlimentação e High 5V, Divisor de voltagem para 3V\nAceita Hi 3V no input (TRIG)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text5",
+      "top": 0,
+      "left": -643.2,
+      "attrs": {
+        "text": "pH Analogico\nAlimentação 5V, faixa de saída 0~5V\nDivisor de voltagem para 3V (na simulação não funciona,\nfio branco conectando diretamente mas não existe na realidade)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text6",
+      "top": 240,
+      "left": -412.8,
+      "attrs": { "text": "Turbidity Analogico\nAceita 3.3V e 5V" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text7",
+      "top": 144,
+      "left": -489.6,
+      "attrs": { "text": "TDS (solidos dissolvidos totais) Analógico" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -111.25,
+      "left": -28.8,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -111.25,
+      "left": 57.6,
+      "attrs": { "value": "15000" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text8",
+      "top": 0,
+      "left": 422.4,
+      "attrs": {
+        "text": "Com WiFi ativo, ADC2 fica indisponível.\nADC1 disponível nos pinos VP (36), VN (39), 34, 35, 32, 33\n\nSe necessário DAC, disponível no pino 25 e 26.\n\nPinos VP (36), VN (39), 34 e 35 suportam apenas input.\n\nPinos à direita são na prática inacessíveis em um breadboard comum, \nporém a maioria são reservados para funções nativas, como Serial \n(conexão USB), Memória flash do board, funções de boot.\n\nNão usar pinos 12, D2, D3, CMD (à esquerda) sem precauções pois \ntambém é utilizado pelas funções de memória flash."
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 61.55,
+      "left": -28.8,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r5",
+      "top": 61.55,
+      "left": 57.6,
+      "attrs": { "value": "15000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r6",
+      "top": -293.65,
+      "left": 86.4,
+      "attrs": { "value": "4700" }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": -384.6,
+      "left": -224,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text9",
+      "top": -144,
+      "left": 268.8,
+      "attrs": {
+        "text": "Ignorar o branco na realidade, está aqui para\ncorrigir falha da simulação do wokwi."
+      }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "h355.2", "v259.2" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "h307.2", "v241.2" ] ],
+    [ "esp:3V3", "temp1:VCC", "#8f4814", [ "h-57.45", "v-268.8", "h-336" ] ],
+    [ "temp1:GND", "esp:GND.1", "black", [ "h316.8", "v9.6", "h0", "v336" ] ],
+    [ "temp1:DQ", "esp:14", "blue", [ "h288", "v336" ] ],
+    [ "ultrasonic1:ECHO", "r1:1", "orange", [ "h0" ] ],
+    [ "r2:2", "esp:GND.1", "black", [ "h104.4", "v230.4" ] ],
+    [ "r1:2", "r2:1", "orange", [ "v0" ] ],
+    [ "r1:2", "esp:26", "orange", [ "h18", "v28.8", "h124.8", "v163.2" ] ],
+    [ "ultrasonic1:TRIG", "esp:27", "gold", [ "h268.8", "v192.4" ] ],
+    [ "pot1:VCC", "esp:5V", "red", [ "h374.4", "v125.6" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "h326.4", "v67.2" ] ],
+    [ "esp:3V3", "pot2:VCC", "#8f4814", [ "h-57.45", "v144" ] ],
+    [ "pot2:GND", "esp:GND.1", "black", [ "h326.4", "v-38.4" ] ],
+    [ "pot2:SIG", "esp:VN", "limegreen", [ "h268.8", "v-124.4" ] ],
+    [ "ldr1:VCC", "esp:3V3", "#8f4814", [ "h326.4", "v-240" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h307.2", "v-125.2" ] ],
+    [ "ldr1:AO", "esp:VP", "green", [ "h240", "v-250.3" ] ],
+    [ "r5:2", "esp:GND.1", "black", [ "v0", "h104.4", "v57.6" ] ],
+    [ "r4:2", "r5:1", "green", [ "v0" ] ],
+    [ "pot1:SIG", "esp:35", "white", [ "h0" ] ],
+    [ "pot1:SIG", "r4:1", "green", [ "h57.6", "v19.6" ] ],
+    [ "r4:2", "esp:35", "green", [ "h18", "v-19.2" ] ],
+    [ "temp1:DQ", "r6:1", "blue", [ "h153.6", "v-28.8", "h-9.6" ] ],
+    [ "r6:2", "esp:3V3", "#8f4814", [ "v0", "h27.6", "v19.2", "h67.2", "v268.8" ] ],
+    [ "esp:3V3", "relay1:VCC", "#8f4814", [ "h-57.45", "v-422.4" ] ],
+    [ "esp:GND.1", "relay1:GND", "black", [ "h-76.65", "v-566.4" ] ],
+    [ "esp:25", "relay1:IN", "gold", [ "v0", "h-95.85", "v-528" ] ]
+  ],
+  "dependencies": {}
+}
