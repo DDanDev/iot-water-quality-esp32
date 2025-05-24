@@ -25,4 +25,4 @@ https://wokwi.com/projects/429623946087821313
 
 # Video demonstration
 
-To be uploaded
+https://youtu.be/JzeZz6k84_w

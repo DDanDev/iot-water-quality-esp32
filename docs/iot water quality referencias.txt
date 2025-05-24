@@ -1,0 +1,92 @@
+-------
+Partes compradas:
+ESP32 DevKitC WROOM-32D: https://www.saravati.com.br/esp32-devkitc-wroom-32d.html
+Sensor turbidez: https://www.saravati.com.br/modulo-sensor-de-turbidez-particulas-suspensas-na-agua.html
+Sensor distancia ultrassonico: https://www.saravati.com.br/sensor-de-distancia-ultrassonico-hc-sr04.html
+Sensor ph: https://www.saravati.com.br/sensor-ph-modulo-ph4502c-ph-eletrodo.html
+Sensor temperatura digital a prova de agua: https://www.saravati.com.br/sensor-de-temperatura-digital-a-prova-dagua-ds18b20.html
+*Sensor Qualidade de agua (solidos dissolvidos, possível adicionar depois, não está no plano atual): https://www.saravati.com.br/modulo-medidor-de-qualidade-da-agua-tds-meter-v1-0.html
+
+Acessorios:
+Jumpers: https://www.saravati.com.br/kit-jumper-mxm-mxf-fxf-60-fios-20cm.html
+Protoboard (breadboard): https://www.saravati.com.br/protoboard-400-pontos.html
+Caixa a prova de agua: https://www.saravati.com.br/caixa-plastica-abs-200x120x65mm-branco.html
+Resistor 15K: https://www.saravati.com.br/resistor-15k-5-1-4w.html
+Resistor 10K: https://www.saravati.com.br/resistor-10k-5-1-4w.html
+Placa solar USB: https://www.saravati.com.br/placa-painel-solar-portatil-inova.html
+Powerbank USB normal de celular (qualquer um)
+Voltimetro USB para confirmar saida 5v do powerbank: https://www.saravati.com.br/medidor-usb-voltimetro-e-amperimetro-3v-a-20v.html
+
+
+-----------
+Referencias sobre as partes:
+
+ESP32 DevKitC V4 WROOM 32D:
+pagina oficial: https://www.espressif.com/en/products/devkits/esp32-devkitc
+official user guide: https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html
+Official pinout: https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/_images/esp32_devkitC_v4_pinlayout.png
+Esquema eletrico: https://dl.espressif.com/dl/schematics/esp32_devkitc_v4_sch.pdf
+Datasheet do ESP32 (o módulo, processador, não o devkit!) https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
+Datasheet especifico versao 32D: https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf
+Quick summary: https://asset.conrad.com/media10/add/160267/c1/-/gl/002490159DS00/tehnicni-podatki-2383855-espressif-esp32-devkitc-ve-razvojna-plosca-esp32-devkitc-ve.pdf
+Dúvida sobre pinout VDET pins: https://esp32.com/viewtopic.php?t=187
+Sobre ADC, também muita referencia sobre esp32 também nas abas a esquerda: https://randomnerdtutorials.com/esp32-adc-analog-read-arduino-ide/
+Referencia boa para ESP32, porém prestar atenção que é o DevKitV1 que é um pouco diferente do DevKitC (V4), mas é bom para entender os conceitos dos pins disponíveis e varias informações nas abas à esquerda https://lastminuteengineers.com/esp32-pinout-reference/
+Nota importante: ADC2 não disponivel enquanto usa wifi, usar pins do ADC1 para entradas analogicas: https://lastminuteengineers.com/esp32-basics-adc/
+Loop para manter wifi conectado https://randomnerdtutorials.com/solved-reconnect-esp32-to-wifi/
+Experimento sobre low/high logic input digital: https://electronics.stackexchange.com/questions/406200/esp32-logic-high-low-level-voltage-not-working
+Exemplo enviando para MQTT: https://github.com/McOrts/M5StickC_PH_sensor/blob/master/M5StickC_PH_sensor.ino
+Getting started (hello world) com esp32 no vscode: https://www.youtube.com/watch?v=XLQa1sX9KIk
+Muita referencia, pinout, getting started (com arduino IDE e com VSCode e extensao arduino e comparacao com a extensao oficial esp-idf): https://www.circuitstate.com/tutorials/getting-started-with-espressif-esp32-wifi-bluetooth-soc-using-doit-esp32-devkit-v1-development-board/#google_vignette
+Confirmando pin 5v ou VIN funcionam como saida 5V quando o devkit está ligado pela força via usb. https://arduino.stackexchange.com/questions/13912/what-is-the-vin-pin-for e https://esp32.com/viewtopic.php?t=11904
+esp-idf framework: https://github.com/espressif/esp-idf
+Varios guias para usar de referencia com esp32: https://randomnerdtutorials.com/esp32-guides-sensors-modules/#ds18b20
+
+Turbidity Sensor:
+Exemplo código com o mesmo sensor MJKDZ: https://github.com/gauravk5/Turbidity-Sensor/blob/main/Turbidity_module_mjkdz.ino
+Exemplo montagem do MJKDZ em arduino: https://www.hackster.io/GAURAVK5/turbidity-sensor-with-arduino-esp-b63924
+
+Sensor de PH  (PH4502C)
+Pinout, dica de calibração: https://cdn.awsli.com.br/969/969921/arquivos/ph-sensor-ph-4502c.pdf
+Calibração, mais detalhado: https://medienportal.siemens-stiftung.org/view/113583
+Exemplo, mas usando outro sensor com range 0-5v: https://how2electronics.com/diy-iot-water-ph-meter-using-ph-sensor-esp32/
+exemplo, pinout, incompleto mas com diagrama etc: https://docs.cirkitdesigner.com/component/607ee68e-1b94-4135-add3-ebb6e47d72a5/ph4502c
+Manual: https://cdn.awsli.com.br/945/945993/arquivos/HCSR04.pdf
+
+Divisor de voltagem (para o sensor de ph e para o ultrassonico)
+https://randomnerdtutorials.com/how-to-level-shift-5v-to-3-3v/
+
+Ultrassonico HC-SR04
+Confirmando divisor de voltagem funciona nele (saida é digital); https://www.instructables.com/Modify-Ultrasonic-Sensors-for-3-Volts-Logic-prepar/
+Pinout, exemplos, inclusive com esp32: https://randomnerdtutorials.com/esp32-hc-sr04-ultrasonic-arduino/
+Logic high é 5v (confirmando precisa adaptar voltagem); https://www.mouser.com/pdfDocs/Product-Overview-Adafruit-3942.pdf#:~:text=Adafruit%20HC-SR04%20Ultrasonic%20Sonar%20Distance%20Sensor%20is%20used,while%20the%20%E2%80%9Creturn%E2%80%9D%20Echo%20signal%20is%205V%20logic.
+ESP32, confirmando 3v tá bem seguro na margem do logic high: Experimento sobre low/high logic input digital: https://electronics.stackexchange.com/questions/406200/esp32-logic-high-low-level-voltage-not-working
+
+
+Temperatura digital DS18B20
+Full spec: https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf
+
+Relay 3V HIGH/LOW trigger option, up to 250V AC or 30V DC:
+https://arduinogetstarted.com/tutorials/arduino-relay
+https://www.saravati.com.br/modulo-rele-3v-10a-com-optoacopladores.html
+
+Valvula solenoide Normalmente Fechada 127v
+https://www.saravati.com.br/valvula-solenoide-para-agua-127v-180-1-2-x-1-2-va-03.html
+
+---------
+Miscelaneous
+Arduino vs ESP32: https://www.iottechtrends.com/esp32-vs-arduino-uno/
+Todas as variações de esp32 listadas: https://www.espressif.com/en/products/devkits
+Controladores USB mas dá na mesma: https://www.espboards.dev/blog/esp32-usb-to-uart/#google_vignette
+
+
+---------
+Software
+FreeRTOS Overview: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/freertos.html
+ESP32 Get Started oficial: https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html
+ESP-IDF para VSCODE: https://github.com/espressif/vscode-esp-idf-extension/blob/master/README.md
+
+
+
+
+

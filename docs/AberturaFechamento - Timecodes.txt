@@ -1,0 +1,37 @@
+Abertura/Fechamento - Timecode Rele - Timecode(delay) MQTT - Timecode(delay) valvula
+- Os delays são em ms entre o timecode do mqtt e o timecode da valvula.
+- Filmagem em 30fps, portanto precisão de ~33ms para observação visual (MQTT e Valvula). Para observação via áudio (Rele) é utilizado o frame mais próximo do clique. 
+- Os timecodes não são os do vídeo de demonstração, mas foram extraídos do mesmo vídeo bruto.
+- É possível identificar pelo áudio do vídeo a ativação e desativação do relé pois a valvula faz barulho eletrico enquanto recebe energia e o relé faz um clique bastante audível exatamente ao mesmo tempo.
+- É possível identificar no vídeo o momento da atuação da valvula utilizando o frame onde é possível ver a primeira movimentação de agua a sair na abertura e de agua sendo interrompida no fechamento.
+- O tempo entre o sinal do esp32 para ativar o relé é presumido instantâneo e não foi medido. É possível identificar no vídeo o tempo de resposta do MQTT pois foram filmados simultaneamente o protótipo e a tela do computador recebendo as mensagens. Os dois vídeos foram filmados no mesmo framerate, sincronizados por claquete e apresentam sincronia do áudio ao longo de toda a duração. Lembrando que os tempos do MQTT anotados incluem o caminho de ida entre o esp32 e o broker e o tempo de resposta do websocket do broker que envia as mensagens para o navegador sendo filmado. Esses tempos podem também variar de acordo com a qualidade do Wi-Fi no local.
+- Os sensores são lidos e a valvula atuada a cada 3 segundos (configurável por parametron no código).
+
+Eventos:
+Abertura - 	Rele 32:08 -  	MQTT 32:15 (233ms) -  	Acionamento 33:01 (766ms)
+
+Fechamento -  	Rele 08:04 -  	MQTT 08:10 (200ms) -  	Acionamento 08:08 (133ms)
+
+Abertura -  	Rele 29:15 -  	MQTT 29:21 (200ms) -  	Acionamento 30:28 (1433ms)
+
+Fechamento -  	Rele 49:05 -  	MQTT 49:12 (233ms) -  	Acionamento 49:10 (166ms)
+
+Abertura -  	Rele 44:04 -  	MQTT 44:09 (166ms) -  	Acionamento 44:19 (500ms)
+
+Fechamento -  	Rele 47:06 -  	MQTT 47:18 (400ms) -  	Acionamento 47:15 (300ms)
+
+Abertura -  	Rele 20:23 -  	MQTT 20:29 (200ms) -  	Acionamento 21:07 (466ms)
+
+Fechamento -  	Rele 16:10 -  	MQTT 16:16 (200ms) -  	Acionamento 16:21 (366ms)
+
+Abertura -  	Rele 19:12 -  	MQTT 19:26 (466ms) -  	Acionamento 19:29 (900ms)
+
+Fechamento -  	Rele 22:12 -  	MQTT 22:19 (233ms) -  	Acionamento 22:24 (366ms)
+
+Abertura -  	Rele 25:15 -  	MQTT 25:21 (200ms) -  	Acionamento 26:02 (566ms)
+
+Fechamento -  	Rele 28:16 -  	MQTT 28:22 (200ms) -  	Acionamento 28:27 (366ms)
+
+Abertura -  	Rele 31:18 -  	MQTT 31:24 (200ms) -  	Acionamento 32:06 (600ms)
+
+Fechamento -  	Rele 34:19 -  	MQTT 34:26 (233ms) -  	Acionamento 35:00 (366ms)
